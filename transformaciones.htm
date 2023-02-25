@@ -262,8 +262,8 @@
             Material = new THREE.ParticleBasicMaterial({ color: 0xFF0000 });
 
             //Propiedades cubo
-            posini = [0, 0, 0];
-            lado = 20;
+            posini = [10, 10, 10];
+            lado = 30;
 
             //Cubo
             cube  = cubo(posini, lado, Material);
@@ -274,16 +274,18 @@
 
             //Cubo Escalado
             cubeS = cubo(posini, lado, colorG);
-            TraslacionCubo([-posini[0], -posini[1], -posini[2]], cubeS);
+            TraslacionCubo([(-posini[0]-(lado/2)), (-posini[1]-(lado/2)), (-posini[2]-(lado/2))], cubeS);
             EscalaCubo([1.5, 1.5, 1.5], cubeS);
-            TraslacionCubo([posini[0] + lado * 1.75, posini[1] - (lado * 0.2), posini[2] - (lado * 0.2)], cubeS);
+            TraslacionCubo([posini[0]+(lado/2), posini[1]+(lado/2), posini[2]+(lado/2)], cubeS)
+            TraslacionCubo([lado * 2, 0, 0], cubeS);
 
             //Cubo Rotado
             cubeR = cubo(posini, lado, colorB);
-            TraslacionCubo([-posini[0], -posini[1], -posini[2]], cubeR);
+            TraslacionCubo([(-posini[0]-(lado/2)), (-posini[1]-(lado/2)), (-posini[2]-(lado/2))], cubeR);
             EscalaCubo([1.5, 1.5, 1.5], cubeR);
-            TraslacionCubo([posini[0] + lado * 1.75, posini[1] - (lado * 0.2), posini[2] - (lado * 0.2)], cubeR);
             RotacionCubo([gR(45), 0, 0], cubeR);
+            TraslacionCubo([posini[0]+(lado/2), posini[1]+(lado/2), posini[2]+(lado/2)], cubeR)
+            TraslacionCubo([lado * 2, 0, 0], cubeR);
 
             //En el documento HTML
             document.body.appendChild(renderer.domElement);
